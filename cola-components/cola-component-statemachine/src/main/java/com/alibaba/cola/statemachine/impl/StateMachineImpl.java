@@ -1,5 +1,6 @@
 package com.alibaba.cola.statemachine.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class StateMachineImpl<S, E, C> implements StateMachine<S, E, C> {
     private FailCallback<S, E, C> failCallback;
 
     public StateMachineImpl(Map<S, State<S, E, C>> stateMap) {
-        this.stateMap = stateMap;
+        this.stateMap = new HashMap<>(stateMap);
     }
 
     @Override
